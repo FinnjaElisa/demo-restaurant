@@ -9,51 +9,65 @@ window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
 
 // =============================================
-//  HERO PARALLAX
+//  SMOOTH PARALLAX (requestAnimationFrame)
 // =============================================
 const heroBg = document.getElementById('heroBg');
-function heroParallax() {
-  if (!heroBg) return;
-  const scrolled = window.scrollY;
-  // Move background upward at 40% of scroll speed for depth
-  heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
-}
-window.addEventListener('scroll', heroParallax, { passive: true });
-
-// =============================================
-//  ÜBER UNS PARALLAX
-// =============================================
 const ueberParallax = document.getElementById('ueberParallax');
-function ueberParallaxFn() {
-  if (!ueberParallax) return;
-  const rect = ueberParallax.closest('.ueber-img-wrap').getBoundingClientRect();
-  const viewH = window.innerHeight;
-  // Only animate when section is in view
-  if (rect.bottom < 0 || rect.top > viewH) return;
-  const progress = (viewH - rect.top) / (viewH + rect.height);
-  const offset = (progress - 0.5) * 80;
-  ueberParallax.style.transform = `translateY(${offset}px)`;
-}
-window.addEventListener('scroll', ueberParallaxFn, { passive: true });
-ueberParallaxFn();
-
-// =============================================
-//  GALERIE IMAGE PARALLAX
-// =============================================
 const galerieImgs = document.querySelectorAll('.galerie-item img[data-parallax]');
-function galerieParallax() {
+
+let currentScroll = window.scrollY;
+let targetScroll = window.scrollY;
+let rafId = null;
+
+// Capture scroll target passively
+window.addEventListener('scroll', () => {
+  targetScroll = window.scrollY;
+}, { passive: true });
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function tick() {
+  // Smooth interpolation toward target scroll (0.12 = smoothing factor)
+  currentScroll = lerp(currentScroll, targetScroll, 0.12);
+
+  // Hero parallax
+  if (heroBg) {
+    heroBg.style.transform = `translate3d(0, ${currentScroll * 0.4}px, 0)`;
+  }
+
+  // Über uns parallax
+  if (ueberParallax) {
+    const wrap = ueberParallax.closest('.ueber-img-wrap');
+    if (wrap) {
+      const rect = wrap.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      if (rect.bottom >= 0 && rect.top <= viewH) {
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        const offset = (progress - 0.5) * 80;
+        ueberParallax.style.transform = `translate3d(0, ${offset}px, 0)`;
+      }
+    }
+  }
+
+  // Galerie parallax
   galerieImgs.forEach(img => {
     const rect = img.getBoundingClientRect();
     const viewH = window.innerHeight;
-    if (rect.bottom < 0 || rect.top > viewH) return;
-    const speed = parseFloat(img.dataset.parallax) || 0.1;
-    const progress = (viewH - rect.top) / (viewH + rect.height);
-    const offset = (progress - 0.5) * speed * 120;
-    img.style.transform = `translateY(${offset}px) scale(1.12)`;
+    if (rect.bottom >= 0 && rect.top <= viewH) {
+      const speed = parseFloat(img.dataset.parallax) || 0.1;
+      const progress = (viewH - rect.top) / (viewH + rect.height);
+      const offset = (progress - 0.5) * speed * 120;
+      img.style.transform = `translate3d(0, ${offset}px, 0) scale(1.12)`;
+    }
   });
+
+  rafId = requestAnimationFrame(tick);
 }
-window.addEventListener('scroll', galerieParallax, { passive: true });
-galerieParallax();
+
+// Start loop
+rafId = requestAnimationFrame(tick);
 
 // =============================================
 //  SCROLL REVEAL
