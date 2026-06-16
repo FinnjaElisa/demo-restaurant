@@ -70,7 +70,7 @@ function tick() {
 rafId = requestAnimationFrame(tick);
 
 // =============================================
-//  SCROLL REVEAL
+//  SCROLL REVEAL (allgemein)
 // =============================================
 const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
@@ -87,3 +87,25 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 revealEls.forEach(el => observer.observe(el));
+
+// =============================================
+//  MENÜ-KARTEN FALL-ANIMATION
+// =============================================
+const menuCards = document.querySelectorAll('.menu-card');
+
+const cardObserver = new IntersectionObserver((entries) => {
+  // Trigger all cards at once when the grid comes into view
+  const anyVisible = entries.some(e => e.isIntersecting);
+  if (anyVisible) {
+    menuCards.forEach(card => card.classList.add('card-visible'));
+    cardObserver.disconnect();
+  }
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+});
+
+// Observe the first card as trigger
+if (menuCards.length > 0) {
+  cardObserver.observe(menuCards[0]);
+}
