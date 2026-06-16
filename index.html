@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zur alten Eiche – Gasthaus & Küche</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Zur alten Eiche</a>
+    <div class="nav-links">
+      <a href="#kueche">Küche</a>
+      <a href="#ueber-uns">Geschichte</a>
+      <a href="#galerie">Atmosphäre</a>
+      <a href="#reservierung">Tisch reservieren</a>
+    </div>
+    <a href="#reservierung" class="nav-cta">Reservieren</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg">
+      <img src="images/hero.jpg" alt="Gasthaus Zur alten Eiche – rustikale Atmosphäre mit Kaminfeuer" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Gegründet 1987 · Wolfsburg-Fallersleben</p>
+      <h1 class="hero-title">Echtes Essen.<br><em>Echter Ort.</em></h1>
+      <p class="hero-sub">Hausgemachte Küche, offenes Feuer, schwere Holztische.<br>Kein Schnickschnack. Dafür alles, was zählt.</p>
+      <div class="hero-actions">
+        <a href="#reservierung" class="btn btn-light">Tisch reservieren</a>
+        <a href="#kueche" class="btn btn-ghost">Unsere Karte</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- ZITAT (Scroll-Reveal) -->
+  <section class="zitat-section">
+    <div class="zitat-inner">
+      <div class="zitat-line zitat-left reveal-left">
+        <span class="zitat-deco">"</span>
+      </div>
+      <blockquote class="zitat-text reveal-up">
+        Kochen ist die älteste Form der Gastfreundschaft.<br>
+        <em>Hier wird sie noch ernst genommen.</em>
+      </blockquote>
+      <div class="zitat-line zitat-right reveal-right">
+        <span class="zitat-deco">"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KÜCHE -->
+  <section class="kueche" id="kueche">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="eyebrow">Unsere Karte</p>
+        <h2>Was heute auf den Tisch kommt</h2>
+        <p class="section-sub">Saisonal. Regional. Jeden Tag frisch zubereitet.</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-card reveal-up" style="--delay: 0s">
+          <div class="menu-card-img">
+            <img src="images/suppe.jpg" alt="Hausgemachte Suppe" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-tag">Vorspeise</span>
+            <h3>Linsensuppe vom Vortag</h3>
+            <p>Mit geräuchertem Speck, frischem Brot und einem Löffel Sahne.</p>
+            <span class="menu-price">6,90 €</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal-up" style="--delay: 0.1s">
+          <div class="menu-card-img">
+            <img src="images/braten.jpg" alt="Sonntagsbraten" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-tag">Hauptgericht</span>
+            <h3>Sonntagsbraten vom Rind</h3>
+            <p>Geschmort, mit Rotkohl, Semmelknödeln und Bratenjus.</p>
+            <span class="menu-price">19,50 €</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal-up" style="--delay: 0.2s">
+          <div class="menu-card-img">
+            <img src="images/schnitzel.jpg" alt="Schnitzel nach Wiener Art" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-tag">Klassiker</span>
+            <h3>Schnitzel nach Hausart</h3>
+            <p>Dünn geklopft, goldbraun gebacken. Kartoffelsalat. Zitrone.</p>
+            <span class="menu-price">17,90 €</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal-up" style="--delay: 0.3s">
+          <div class="menu-card-img">
+            <img src="images/dessert.jpg" alt="Hausgemachter Kuchen" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-tag">Nachspeise</span>
+            <h3>Warmer Apfelstrudel</h3>
+            <p>Aus dem Ofen. Mit Vanillesauce oder Vanilleeis.</p>
+            <span class="menu-price">7,50 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS mit Parallax-Bild -->
+  <section class="ueber-uns" id="ueber-uns">
+    <div class="ueber-split">
+      <div class="ueber-img-wrap">
+        <div class="ueber-parallax-img" id="ueberParallax">
+          <img src="images/kamin.jpg" alt="Kaminfeuer im Gasthaus" />
+        </div>
+      </div>
+      <div class="ueber-text reveal-right">
+        <p class="eyebrow">Unsere Geschichte</p>
+        <h2>Seit 1987 am gleichen Platz</h2>
+        <p>Was als kleines Dorfgasthaus begann, ist heute ein fester Treffpunkt für Familien, Handwerker und alle, die wissen, dass gutes Essen Zeit braucht.</p>
+        <p>Wir kochen nicht für Instagram. Wir kochen für den Tisch vor uns – mit Zutaten aus der Region, Rezepten aus der Familie und Feuer, das seit dem ersten Tag brennt.</p>
+        <div class="ueber-facts">
+          <div class="fact">
+            <span class="fact-num">37+</span>
+            <span class="fact-label">Jahre geöffnet</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">4</span>
+            <span class="fact-label">Generationen Stammgäste</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">100%</span>
+            <span class="fact-label">Hausgemacht</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE mit Parallax -->
+  <section class="galerie" id="galerie">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="eyebrow">Atmosphäre</p>
+        <h2>Ein Blick ins Haus</h2>
+      </div>
+    </div>
+    <div class="galerie-grid">
+      <div class="galerie-item galerie-large reveal-up">
+        <img src="images/galerie-1.jpg" alt="Gaststube mit Holztischen" data-parallax="0.15" />
+      </div>
+      <div class="galerie-item reveal-up" style="--delay: 0.05s">
+        <img src="images/galerie-2.jpg" alt="Kaminecke" data-parallax="0.1" />
+      </div>
+      <div class="galerie-item reveal-up" style="--delay: 0.1s">
+        <img src="images/galerie-3.jpg" alt="Gedeckter Tisch" data-parallax="0.2" />
+      </div>
+      <div class="galerie-item reveal-up" style="--delay: 0.15s">
+        <img src="images/galerie-4.jpg" alt="Außenansicht Gasthaus" data-parallax="0.12" />
+      </div>
+      <div class="galerie-item reveal-up" style="--delay: 0.2s">
+        <img src="images/galerie-5.jpg" alt="Küche bei der Arbeit" data-parallax="0.08" />
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVIERUNG -->
+  <section class="reservierung" id="reservierung">
+    <div class="reservierung-bg">
+      <img src="images/aussen.jpg" alt="Außenansicht Zur alten Eiche" />
+      <div class="reservierung-overlay"></div>
+    </div>
+    <div class="container reservierung-inner reveal-up">
+      <p class="eyebrow">Tisch reservieren</p>
+      <h2>Wir freuen uns auf euch</h2>
+      <p class="section-sub">Am besten telefonisch oder per E-Mail.<br>Für Gruppen ab 8 Personen bitte 48 Stunden vorher melden.</p>
+
+      <div class="kontakt-karten">
+        <a href="tel:+495362987654" class="kontakt-karte">
+          <span class="karte-icon">📞</span>
+          <span class="karte-label">Telefon</span>
+          <span class="karte-val">05362 98 76 54</span>
+        </a>
+        <a href="mailto:info@zur-alten-eiche.de" class="kontakt-karte">
+          <span class="karte-icon">✉️</span>
+          <span class="karte-label">E-Mail</span>
+          <span class="karte-val">info@zur-alten-eiche.de</span>
+        </a>
+        <div class="kontakt-karte">
+          <span class="karte-icon">📍</span>
+          <span class="karte-label">Adresse</span>
+          <span class="karte-val">Hauptstraße 7,<br>38442 Wolfsburg-Fallersleben</span>
+        </div>
+      </div>
+
+      <table class="oeffnung">
+        <tr><td>Dienstag – Freitag</td><td>11:30 – 14:00 &amp; 17:30 – 22:00</td></tr>
+        <tr><td>Samstag &amp; Sonntag</td><td>11:30 – 22:00 Uhr</td></tr>
+        <tr><td>Montag</td><td>Ruhetag</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">Zur alten Eiche</span>
+      <span class="footer-copy">© 2026 · Hauptstraße 7, 38442 Wolfsburg-Fallersleben</span>
+      <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
